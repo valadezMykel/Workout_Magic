@@ -1,6 +1,6 @@
-const express = require("express");
-
-const app = express();
+const express = require("express")
+const mongoose = require('mongoose')
+const app = express()
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -9,6 +9,9 @@ app.use(express.static("public"));
 
 require("./controller/htmlRoutes")(app);
 require("./controller/apiRoutes")(app);
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", 
+{ useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
 
 const PORT = process.env.PORT || 4400;
 
