@@ -1,10 +1,16 @@
-const Workout = require("../model/workoutModel")
+const Workout = require("../models/workoutModel")
 
 module.exports = (app) => {
     app.get("/api/workouts", (req, res) => {
-        const id = req.params.id
+        Workout.find({})
+        .then(data => {
+            res.json(data);
+        }).catch( err => {
+            console.log(err)
+            res.json(err)
+        })
 
-        res.json();
+        
     });
 
     app.put("/api/workouts/:id", (req, res) => {
