@@ -9,7 +9,9 @@
 For the Repository link click [here](https://github.com/valadezMykel/Workout_Magic)
 
 
-For a link to the deployed project click [here](coming soon)
+For a link to the deployed project click [here](https://infinite-eyrie-49427.herokuapp.com/)
+
+![Workout Magic Home Screen](./assets/workout_magic.png)
 
 
 ## Table of Contents
@@ -29,7 +31,7 @@ Workout Magic helps you keep track of your workouts and helps you visualize your
 
 ## Installation
 
-To install Workout Magic you will need node package manager(npm).  If you do not have or wish to get npm then you may simply use the web page link[]().  Otherwise clone this repository, then in your command line run "npm i". Once that is done run "npm start", and open your web browser to "localhost:4400"
+To install Workout Magic you will need node package manager(npm).  If you do not have or wish to get npm then you may simply use the web page [link](https://infinite-eyrie-49427.herokuapp.com/).  Otherwise clone this repository, then in your command line run "npm i". Once that is done run "npm start", and open your web browser to "localhost:4400"
 
 
 ## Usage
