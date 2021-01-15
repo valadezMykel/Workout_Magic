@@ -24,8 +24,6 @@ module.exports = (app) => {
             console.log(err)
             res.json(err)
         })
-
-        res.json();
     });
 
     app.post("/api/workouts/", (req, res) => {
@@ -39,9 +37,19 @@ module.exports = (app) => {
     });
 
     app.get("/api/workouts/range", (req, res) => {
-        Workout.find({
-            day: { $gte: new Date().setDate(new Date().getDate()-7)}
-        }).then( data => {
+        
+        Workout
+        // .sort({'_id': -1})
+        // .limit(7)
+        .aggregate([{
+            $addFields: {
+                totalDuration: {$sum: "$exercises.duration"
+            }}
+        }])
+        .sort({'_id': -1})
+        .limit(7)
+        .then( data => {
+            console.log(data)
             res.json(data)
         }).catch( err => {
             console.log(err)
