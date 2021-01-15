@@ -15,6 +15,16 @@ module.exports = (app) => {
 
     app.put("/api/workouts/:id", (req, res) => {
         const id = req.params.id
+        console.log(id)
+
+        Workout.findByIdAndUpdate(id, { $push: { exercises: req.body}})
+        .then( data => {
+            res.json(data)
+        }).catch( err => {
+            console.log(err)
+            res.json(err)
+        })
+
         res.json();
     });
 
@@ -24,12 +34,19 @@ module.exports = (app) => {
         .then(data => {
             res.json(data)
         }).catch(err => {
-            res.send(err)
+            res.json(err)
         })
     });
 
     app.get("/api/workouts/range", (req, res) => {
-
+        Workout.find({
+            day: { $gte: new Date().setDate(new Date().getDate()-7)}
+        }).then( data => {
+            res.json(data)
+        }).catch( err => {
+            console.log(err)
+            res.json(err)
+        })
     })
 }
 

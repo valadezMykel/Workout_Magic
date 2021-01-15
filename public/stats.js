@@ -22,6 +22,13 @@ function generatePalette() {
 }
 
 function populateChart(data) {
+  console.log(data)
+  // this tries to pull out the totalDuration value on each object in the data arr
+  //  For this to work the data would have to look like this
+  // 0:
+  //  day:
+  //  exercises:
+  //  totalDuration: containing the total duration of each day
   let durations = data.map(({ totalDuration }) => totalDuration);
   let pounds = calculateTotalWeight(data);
   let workouts = workoutNames(data);
@@ -173,6 +180,7 @@ function populateChart(data) {
   });
 }
 
+// this creates an array of the total weight of resistance exercises per day aka workout
 function calculateTotalWeight(data) {
   let totals = [];
 
