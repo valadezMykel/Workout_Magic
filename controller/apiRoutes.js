@@ -48,6 +48,7 @@ module.exports = (app) => {
         }])
         .sort({'_id': -1})
         .limit(7)
+        .sort({'_id': 1})
         .then( data => {
             console.log(data)
             res.json(data)
